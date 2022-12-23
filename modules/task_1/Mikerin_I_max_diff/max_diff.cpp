@@ -46,7 +46,7 @@ int getParallelOperations(int* global_vec, int count_size_vector) {
         int* local_vec = new int[delta];
         MPI_Status status;
         MPI_Recv(local_vec, delta, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
-        int local_max_diff = getSequentialOperations(local_vec,delta);
+        int local_max_diff = getSequentialOperations(local_vec, delta);
 
         MPI_Reduce(&local_max_diff, &global_max_diff, 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD);
     } else {
@@ -55,14 +55,14 @@ int getParallelOperations(int* global_vec, int count_size_vector) {
             for (int i = 0; i < delta+ 1 + remainder; i++) {
                 local_vec[i] = global_vec[i];
             }
-            int local_max_diff = getSequentialOperations(local_vec,delta+1 + remainder);
+            int local_max_diff = getSequentialOperations(local_vec, delta+1 + remainder);
             MPI_Reduce(&local_max_diff, &global_max_diff, 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD);
 
         } else {
             int* local_vec = new int[delta+1];
             MPI_Status status;
             MPI_Recv(local_vec, delta + 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
-            int local_max_diff = getSequentialOperations(local_vec,delta+1);
+            int local_max_diff = getSequentialOperations(local_vec, delta+1);
             MPI_Reduce(&local_max_diff, &global_max_diff, 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD);
         }
     }

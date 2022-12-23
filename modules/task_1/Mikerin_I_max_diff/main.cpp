@@ -80,7 +80,7 @@ TEST(Parallel_Operations_MPI, RANDOM) {
     int global_max_diff = getParallelOperations(global_vec, count_size_vector);
 
     if (rank == 0) {
-        int reference_max_diff = getSequentialOperations(global_vec,count_size_vector);
+        int reference_max_diff = getSequentialOperations(global_vec, count_size_vector);
         ASSERT_EQ(reference_max_diff, global_max_diff);
     }
 }
@@ -100,7 +100,7 @@ TEST(Parallel_Operations_MPI, SeampleSize) {
     int global_max_diff = getParallelOperations(global_vec, count_size_vector);
 
     if (rank == 0) {
-        int reference_max_diff = getSequentialOperations(global_vec,count_size_vector);
+        int reference_max_diff = getSequentialOperations(global_vec, count_size_vector);
         ASSERT_EQ(reference_max_diff, global_max_diff);
     }
 }
