@@ -5,7 +5,7 @@
 #include <string>
 #include <random>
 #include <algorithm>
-#include "max_diff.h"
+#include "../../../modules/task_1/Mikerin_I_max_diff/max_diff.h"
 
 
 std::vector<int> getRandomVector(int  sz) {
