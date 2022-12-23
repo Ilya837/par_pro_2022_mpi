@@ -18,9 +18,11 @@ int* getRandomVector(int  sz) {
 
 int getSequentialOperations(int* vec, int sz) {
     int max_diff = 0;
+    int tmp;
     for ( int i = 0; i < sz-1; i++ ) {
-        if ( abs(vec[i]-vec[i+1]) > max_diff)
-            max_diff = abs(vec[i]-vec[i+1]);
+        tmp = abs(vec[i]-vec[i+1]);
+        if ( tmp > max_diff)
+            max_diff = tmp;
     }
 
     return max_diff;
