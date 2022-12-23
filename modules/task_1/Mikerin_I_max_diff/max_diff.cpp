@@ -5,7 +5,7 @@
 #include <string>
 #include <random>
 #include <algorithm>
-#include "./max_diff.h"
+#include "max_diff.h"
 
 
 std::vector<int> getRandomVector(int  sz) {
@@ -31,7 +31,6 @@ int getParallelOperations(std::vector<int> global_vec, int count_size_vector) {
     int size, rank;
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    
     const int delta = count_size_vector / size;
     const int remainder = count_size_vector % size;
 
